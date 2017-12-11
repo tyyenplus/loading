@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>loading</title>
+        <link rel="stylesheet" href="css/temp.css" />
+        <link rel="stylesheet" href="css/loading.css">
+    </head>
+    <body>
+
+        <div class="template-wrap">
+            <div class="loading-item" id="threeCircle"></div>
+            <div class="loading-item" id="sizeChange"></div>
+            <div class="loading-item" id="lineChange"></div>
+            <div class="loading-item" id="Barloader"></div>
+            <div class="loading-item" id="TwoBubbleRound"></div>
+            <div class="loading-item" id="FYloaderA"></div>
+            <div class="loading-item" id="FYloaderB"></div>
+            <div class="loading-item" id="FYloaderC"></div>
+            <div class="loading-item" id="FYloaderD"></div>
+            <div class="loading-item" id="ballsAround"></div>
+            <div class="loading-item block" id="BallsToLine"></div>
+            <div class="loading-item" id="clockLoaderItem"></div>
+            <div class="loading-item" id="ovalQuarter"></div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/loading.js"></script>
+    <script type="text/javascript">
+        document.getElementById('threeCircle').innerHTML = MyLoad.threeCircle();
+        document.getElementById('sizeChange').innerHTML = MyLoad.sizeChange();
+        document.getElementById('lineChange').innerHTML = MyLoad.lineChange();
+        document.getElementById('FYloaderA').innerHTML = MyLoad.FYloaderA();
+        document.getElementById('FYloaderB').innerHTML = MyLoad.FYloaderB();
+        document.getElementById('FYloaderC').innerHTML = MyLoad.FYloaderC();
+        document.getElementById('FYloaderD').innerHTML = MyLoad.FYloaderD();
+        document.getElementById('Barloader').innerHTML = MyLoad.Barloader();
+        document.getElementById('ballsAround').innerHTML = MyLoad.ballsAround();
+        document.getElementById('TwoBubbleRound').innerHTML = MyLoad.TwoBubbleRound();
+        document.getElementById('BallsToLine').innerHTML = MyLoad.BallsToLine();
+        document.getElementById('clockLoaderItem').innerHTML = MyLoad.clockLoader();
+        document.getElementById('ovalQuarter').innerHTML = MyLoad.ovalQuarter();
+
+
+
+        var mask = $('<div class="mask"></div>');
+        var show = $('<div class="showloading"></div>');
+        $('.template-wrap').on('click','.loading-item', function() {
+            show.html($(this).html());
+            $('body').append(mask.append(show));
+            mask.fadeIn(300).click(function() {
+                $(this).fadeOut(300,function() {
+                    $(this).remove();
+                })
+            });
+        })
+    </script>
+</html>
